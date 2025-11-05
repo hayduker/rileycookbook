@@ -3,19 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Download My PDF</title>
+  <title>Download and View PDF</title>
   <style>
     body {
       font-family: system-ui, sans-serif;
       background: #f9fafb;
+      margin: 0;
+      padding: 2rem;
       display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
       flex-direction: column;
+      align-items: center;
+      gap: 2rem;
     }
     h1 {
       color: #333;
+      margin-bottom: 0;
     }
     a.button {
       display: inline-block;
@@ -30,16 +32,29 @@
     a.button:hover {
       background-color: #0056b3;
     }
+    iframe {
+      width: 90%;
+      height: 80vh;
+      border: 1px solid #ccc;
+      border-radius: 0.5rem;
+      background: white;
+    }
   </style>
 </head>
 <body>
-  <h1>Download the PDF</h1>
+  <!-- <h1>Download the cookbook!</h1> -->
   <a
     class="button"
-    href="https://github.com/hayduker/rileycookbook/releases/download/v1.0/cookbook.pdf"
+    href="https://cdn.rileycookbook.com/rileycookbook.pdf"
     download
   >
-    Download (800 MB)
+    Download
   </a>
+
+  <iframe
+    src="https://cdn.rileycookbook.com/rileycookbook.pdf"
+    title="Embedded PDF Viewer"
+  ></iframe>
 </body>
 </html>
+
