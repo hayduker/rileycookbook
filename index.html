@@ -8,7 +8,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Leckerli+One&display=swap" rel="stylesheet">
   <title>Download and View PDF</title>
   <style>
-    /* Fill the visible viewport but allow the page to grow if content needs more space */
     html, body {
       min-height: 100dvh;
       height: auto;
@@ -26,9 +25,8 @@
       text-align: center;
       padding: 2rem;
       box-sizing: border-box;
-      gap: 2rem;
-      /* allow scrolling if content is taller than viewport */
-      overflow: auto;
+      gap: 1.5rem;
+      overflow: auto; /* allow scroll if content is too tall */
     }
 
     h1 {
@@ -39,11 +37,11 @@
 
     p {
       font-family: "Karla", sans-serif;
-      font-size: 1.0rem;
+      font-size: 1.1rem;
       color: #ffffff;
       line-height: 1.5;
       margin: 0;
-      max-width: 600px;
+      max-width: 650px;
     }
 
     a.link {
@@ -51,14 +49,21 @@
       text-decoration: underline;
     }
 
-    /* MOBILE / SHORT-HEIGHT RULE:
-       If the viewport height is small, stop centering vertically and
-       pin content to the top so users can scroll to the bottom.
-       Adjust the max-height value to taste (I used 640px as a reasonable breakpoint). */
+    /* Image scaling rule */
+    img.fp-thumb {
+      width: 100%;              /* Scale naturally with container */
+      max-width: 320px;         /* Don’t exceed 320px */
+      min-width: 200px;         /* Shrink only down to 200px */
+      height: auto;             /* Keep aspect ratio */
+      border: 1px solid lightgray;
+      box-shadow: lightgray 0px 0px 4px 1px;
+    }
+
+    /* For small-height screens, stop centering vertically */
     @media (max-height: 640px) {
       body {
-        justify-content: flex-start; /* top-justified */
-        padding-top: 2.25rem;        /* give a little breathing room at top */
+        justify-content: flex-start;
+        padding-top: 2.25rem;
       }
     }
   </style>
@@ -66,13 +71,14 @@
 <body>
   <h1>Welcome, Riley Family!</h1>
   <p>
-    We are excited to share our family cookbook with you. <a href="https://cdn.rileycookbook.com/rileycookbook.pdf" class="link">Click here</a> to download the PDF to your device, or click the cover below to view the Flipbook version.
+    We are excited to share our family cookbook with you. 
+    <a href="https://cdn.rileycookbook.com/rileycookbook.pdf" class="link">Click here</a> 
+    to download the PDF to your device, or click the cover below to view the Flipbook version.
   </p>
-  <a href="https://heyzine.com/flip-book/f42b7cd7db.html" target="_BLANK" class="heyzine-link fp-link">
+  <a href="https://heyzine.com/flip-book/f42b7cd7db.html" target="_blank" class="heyzine-link fp-link">
     <img
       src="https://cdnc.heyzine.com/flip-book/cover/f42b7cd7db.jpg"
       class="fp-thumb"
-      style="border: 1px solid lightgray; box-shadow: lightgray 0px 0px 4px 1px; width: 300px;"
       alt="Cookbook cover"
     >
   </a>
