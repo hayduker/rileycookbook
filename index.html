@@ -8,54 +8,59 @@
   <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Leckerli+One&display=swap" rel="stylesheet">
   <title>Download and View PDF</title>
   <style>
+    /* Fill the visible viewport but allow the page to grow if content needs more space */
     html, body {
-      height: 100dvh; /* Fill the full visible viewport height */
+      min-height: 100dvh;
+      height: auto;
       margin: 0;
       padding: 0;
     }
+
     body {
       font-family: system-ui, sans-serif;
       background: #352925;
       display: flex;
       flex-direction: column;
-      justify-content: center; /* vertical centering */
+      justify-content: center; /* center vertically when there is room */
       align-items: center;     /* horizontal centering */
       text-align: center;
       padding: 2rem;
       box-sizing: border-box;
       gap: 2rem;
-      overflow: hidden; /* prevent scrollbars */
+      /* allow scrolling if content is taller than viewport */
+      overflow: auto;
     }
+
     h1 {
       font-family: "Leckerli One", cursive;
       color: #c85c24;
       margin: 0;
     }
+
     p {
       font-family: "Karla", sans-serif;
-      font-size: 1.2rem;
+      font-size: 1.0rem;
       color: #ffffff;
       line-height: 1.5;
       margin: 0;
       max-width: 600px;
     }
+
     a.link {
       color: #c85c24;
       text-decoration: underline;
     }
-    /* a.button {
-      display: inline-block;
-      background-color: #c85c24;
-      color: #ffffff;
-      padding: 1rem 2rem;
-      text-decoration: none;
-      border-radius: 0.5rem;
-      font-size: 1.2rem;
-      transition: background-color 0.2s ease;
+
+    /* MOBILE / SHORT-HEIGHT RULE:
+       If the viewport height is small, stop centering vertically and
+       pin content to the top so users can scroll to the bottom.
+       Adjust the max-height value to taste (I used 640px as a reasonable breakpoint). */
+    @media (max-height: 640px) {
+      body {
+        justify-content: flex-start; /* top-justified */
+        padding-top: 2.25rem;        /* give a little breathing room at top */
+      }
     }
-    a.button:hover {
-      background-color: #9f491d;
-    } */
   </style>
 </head>
 <body>
@@ -67,18 +72,9 @@
     <img
       src="https://cdnc.heyzine.com/flip-book/cover/f42b7cd7db.jpg"
       class="fp-thumb"
-      style="border: 1px solid lightgray; box-shadow: lightgray 0px 0px 4px 1px; width: 320px;"
+      style="border: 1px solid lightgray; box-shadow: lightgray 0px 0px 4px 1px; width: 300px;"
+      alt="Cookbook cover"
     >
   </a>
 </body>
 </html>
-
-
-
-  <!-- <a
-    class="button"
-    href="https://cdn.rileycookbook.com/rileycookbook.pdf"
-    download
-  >
-    Download PDF
-  </a> -->
